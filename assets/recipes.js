@@ -1,5 +1,5 @@
 
-var ingredient
+var ingredient;
 
 // search 
 function search() {
@@ -20,7 +20,7 @@ function fetchRecipes() {
         .then(function (data) {
             console.log(data);
             //clears previous results
-            $("#mainCard").empty()
+            $("#mainCard").empty();
 
             // for loop to go through each of the returned recipes
             for (var i = 0; i < (data.hits).length; i++) {
@@ -35,10 +35,10 @@ function fetchRecipes() {
                 var recipeImg = $("<img>").addClass("card-img-top p-2");
 
                 // applies the url to the src
-                recipeImg.attr("src", data.hits[i].recipe.image)
+                recipeImg.attr("src", data.hits[i].recipe.image);
 
                 // appends the image to the card div
-                newCard.append(recipeImg)
+                newCard.append(recipeImg);
 
                 // creates new title element
                 var cardTitle = $("<h5>").addClass("card-title");
@@ -97,19 +97,20 @@ function fetchRecipes() {
 
                 }
 
+
                 // button creation
                 var recipeButton = $("<a>").addClass("btn btn-primary");
 
                 // applying the recipe link to the new button
                 recipeButton.attr("href", (data.hits[i].recipe.url));
-                recipeButton.text("Go to Recipe")
+                recipeButton.text("Go to Recipe");
 
                 // appending button to card
-                recipeContainer.append(recipeButton)
+                recipeContainer.append(recipeButton);
 
                 //appends new card and then recipe container
-                newCard.append(recipeContainer)
-                $("#mainCard").append(newCard)
+                newCard.append(recipeContainer);
+                $("#mainCard").append(newCard);
             }
         });
 }
