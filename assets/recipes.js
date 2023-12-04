@@ -142,8 +142,6 @@ function fetchRecipes() {
                     recipeContainer.append(cardBody);
 
                 }
-
-
                 // button creation
                 var recipeButton = $("<a>").addClass("btn btn-primary");
 
