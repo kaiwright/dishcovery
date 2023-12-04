@@ -1,6 +1,42 @@
 
 var ingredient;
 
+co2Data = []
+recipeNames = []
+ingredientsArray = []
+
+
+
+chartButton = $("#chartButton")
+$(chartButton).hide()
+
+// chart
+function createChart() {
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: recipeNames,
+            datasets: [{
+                data: co2Data,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+}
+
+
 // search 
 function search() {
     var input = document.getElementById("userInput").value;
@@ -22,8 +58,18 @@ function fetchRecipes() {
             //clears previous results
             $("#mainCard").empty();
 
+            // create variables
+            let x
+            for (x = 1; x < (data.hits).length; x++) {
+                co2Data.push(window['data' + x] = + Math.round(data.hits[x].recipe.totalCO2Emissions));
+            }
+
+
             // for loop to go through each of the returned recipes
             for (var i = 0; i < (data.hits).length; i++) {
+
+                // // store all recipe names
+                recipeNames.push(data.hits[i].recipe.label);
 
                 // creates a new card element
                 var newCard = $("<div>").addClass("card col");
@@ -113,7 +159,9 @@ function fetchRecipes() {
                 $("#mainCard").append(newCard);
             }
         });
+    $(chartButton).show()
 }
+
 
 
 
