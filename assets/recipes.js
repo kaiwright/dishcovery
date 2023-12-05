@@ -6,7 +6,6 @@ recipeNames = []
 ingredientsArray = []
 
 
-
 chartButton = $("#chartButton")
 $(chartButton).hide()
 
@@ -38,9 +37,7 @@ function createChart() {
           },
     });
 
-
 }
-
 
 // search 
 function search() {
@@ -62,6 +59,7 @@ function fetchRecipes() {
             console.log(data);
             //clears previous results
             $("#mainCard").empty();
+            cuisineTypeArray = []
 
             // create variables
             let x
@@ -116,6 +114,9 @@ function fetchRecipes() {
                     // append the card body to the card
                     recipeContainer.append(cardBody);
 
+                    // cuisine type array
+                    cuisineTypeArray.push(result);
+
                 }
 
                 // Diet labels
@@ -164,7 +165,6 @@ function fetchRecipes() {
         });
     $(chartButton).show()
 }
-
 
 
 
