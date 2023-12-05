@@ -4,13 +4,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styleUserPref.css">
     <title>User Preferences</title>
 </head>
 <body>
-    <div id="container" class="container">
-        <!--FORM SECTION1 -->
+    <div id="container" class="container"> <div class="row">
+        <!-- ABOUT YOU PREFERENCES-->
+        <div class="col align-items-center flex-col sign-up">
+            <div class="form-wrapper align-items-center">
+                <div class="form allergens">
+                    <div class="toggle-group">
+                        <h1>About you</h1>
+                        <p>
+                            Female
+                        </p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p>
+                            Male
+                        </p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p>
+                            Other
+                        </p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p>
+                            My current weight
+                        </p>
+                        <div class="input-group">
+                            <input type="weight"id="wheight">
+                          </div>
+                        <p>
+                           My current height
+                        </p>
+                        <div class="input-group">
+                            <input type="heigh" id="height">
+                    </div>
+                    <br>
+                    <button id="save-button">
+                        Save Preferences
+                    </button>
+                    <!-- END ABOUT YOU -->
+                </div>
+                </div>
+                <!-- END FORM SECTION1 -->
+            </div>
+        </div>
+        <!--FORM SECTION -->
         <div class="row">
             <!-- ALLERGENS-->
             <div class="col align-items-center flex-col sign-up">
@@ -18,7 +66,7 @@
                     <div class="form allergens">
                         <div class="toggle-group">
                             <h1>Allergens</h1>
-                            <h3>Which alergens do you have?</h3>
+                            <h3>Show me recipes that are:</h3>
                             <p>
                                 Celery-free
                             </p>
@@ -62,7 +110,7 @@
                                 <span class="slider round"></span>
                             </label>
                             <p>
-                                Lupine-free
+                                Lupin-free
                             </p>
                             <label class="switch">
                                 <input type="checkbox">
@@ -126,9 +174,9 @@
                 </div>
             <!-- END ALLERGENS -->
         </div>
-            <!-- END FORM SECTION1 -->
+            <!-- END FORM SECTION2 -->
         </div>
-        <!--FORM SECTION2-->
+        <!--FORM SECTION3-->
         <div class="row">
             <!-- DIET PREFERENCES-->
             <div class="col align-items-center flex-col sign-up">
@@ -236,10 +284,10 @@
                         <!-- END DIETS -->
                     </div>
                     </div>
-                    <!-- END FORM SECTION2 -->
+                    <!-- END FORM SECTION3 -->
                 </div>
             </div>
-                    <!--FORM SECTION3-->
+                    <!--FORM SECTION4-->
                     <div class="row">
                         <!-- Planning Preferences -->
                         <div class="col align-items-center flex-col sign-up">
@@ -269,6 +317,7 @@
                                             <input type="checkbox">
                                             <span class="slider round"></span>
                                         </label>
+                                        <br>
                                         <br>
                                         <h3>How many days a week?</h3>
                                         <p>
@@ -327,7 +376,7 @@
                                     </button>
                                     <!-- END Diets -->
                                 </div>
-                                <!-- END FORM SECTION3 -->
+                                <!-- END FORM SECTION 4-->
                             </div>
                         </div>
                     </div>

@@ -116,7 +116,8 @@ input:checked+.slider:before {
 }
 
 .form {
-  display: flex;
+  
+  display: inline-block;
   flex-wrap: wrap;
   padding: 3rem;
   background-color: var(--white);
@@ -142,4 +143,29 @@ input:checked+.slider:before {
 .form p {
   margin: 1rem 0;
   font-size: .9rem;
+  justify-content: center;
 }
+
+
+#wheight 
+{
+    width: 25%;
+    padding: 0.6rem 0;
+    margin-top: 0px;
+    border-radius: 2.5rem;
+    border-color: #4EA685 ;
+    background-color:  --white #ffffff;
+    color: #4EA685 ;
+    font-size: 0.9rem;  
+}
+#height{
+  width: 25%;
+    padding: 0.6rem 0;
+    margin-top: 0px;
+    border-radius: 2.5rem;
+    border-color: #4EA685 ;
+    background-color:  --white #ffffff;
+    color: #4EA685 ;
+    font-size: 0.9rem;
+}
+
