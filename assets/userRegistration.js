@@ -24,7 +24,27 @@ function registerUser() {
 
   // Check if there is existing user data in local storage
   var storedUserDataJSON = localStorage.getItem('userData');
-  var allUsers = storedUserDataJSON ? JSON.parse(storedUserDataJSON) : [];
+  var allUsers = [];
+
+  try {
+    // Attempt to parse storedUserDataJSON
+    if (storedUserDataJSON) {
+      allUsers = JSON.parse(storedUserDataJSON);
+    }
+  } catch (error) {
+    // Handle JSON parsing error
+    console.error('Error parsing JSON:', error);
+  }
+
+  // Check if the user is already registered by email
+  var existingUser = allUsers.find(user => user.email === email);
+
+  if (existingUser) {
+    // User is already registered, send an alert and redirect to sign-in
+    alert('Your profile already exists. Please sign in.');
+    window.location.href = '';  // Add your sign-in page URL here
+    return;
+  }
 
   // Add the new user to the array
   var newUser = {
@@ -38,7 +58,7 @@ function registerUser() {
     allUsers.push(newUser);
   } else {
     // Convert the existing user data to an array
-    allUsers = [allUsers, newUser];
+    allUsers = [newUser];
   }
 
   // Save the array back to local storage
@@ -46,9 +66,13 @@ function registerUser() {
 
   alert('Registration successful!');
 
+  // Redirect to user preferences after the first-time registration
+  window.location.href = 'userPreference.html';  // Redirect to userPreference.html
+
   // Clear sign-up form inputs
   clearSignUpInputs();
 }
+
 document.getElementById('signup-button').addEventListener('click', registerUser);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -62,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if the first user is already registered
     if (allUsers.length > 0 && allUsers[0].username) {
       // User is already registered, redirect to the dashboard
-      window.location.href = '';
+      window.location.href = '';  // Add your dashboard page URL here
     } else {
       // Populate sign-in inputs with stored username and password
       if (allUsers.length > 0) {
@@ -71,8 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   } else {
-    // User is registering for the first time, redirect to user preferences
-    // window.location.href = 'userPreference.html';
-
+    // No user data found, stay on the registration page
   }
 });
