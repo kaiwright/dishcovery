@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } else {
     // User is registering for the first time, redirect to user preferences
-    window.location.href = 'userPreference.html';
+    // window.location.href = 'userPreference.html';
 
   }
 });
