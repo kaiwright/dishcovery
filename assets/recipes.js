@@ -16,7 +16,7 @@ function createChart() {
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
-        type: 'doughnut',
+        type: 'pie',
         data: {
             labels: recipeNames,
             datasets: [{
@@ -25,12 +25,17 @@ function createChart() {
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Chart.js Pie Chart'
+              }
             }
-        }
+          },
     });
 
 
