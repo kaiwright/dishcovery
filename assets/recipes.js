@@ -1,6 +1,44 @@
 
 var ingredient;
 
+co2Data = []
+recipeNames = []
+ingredientsArray = []
+
+
+chartButton = $("#chartButton")
+$(chartButton).hide()
+
+// chart
+function createChart() {
+
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: recipeNames,
+            datasets: [{
+                data: co2Data,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              title: {
+                display: true,
+                text: 'Chart.js Pie Chart'
+              }
+            }
+          },
+    });
+
+}
+
 // search 
 function search() {
     var input = document.getElementById("userInput").value;
@@ -21,9 +59,20 @@ function fetchRecipes() {
             console.log(data);
             //clears previous results
             $("#mainCard").empty();
+            cuisineTypeArray = []
+
+            // create variables
+            let x
+            for (x = 1; x < (data.hits).length; x++) {
+                co2Data.push(window['data' + x] = + Math.round(data.hits[x].recipe.totalCO2Emissions));
+            }
+
 
             // for loop to go through each of the returned recipes
             for (var i = 0; i < (data.hits).length; i++) {
+
+                // // store all recipe names
+                recipeNames.push(data.hits[i].recipe.label);
 
                 // creates a new card element
                 var newCard = $("<div>").addClass("card col");
@@ -64,6 +113,9 @@ function fetchRecipes() {
 
                     // append the card body to the card
                     recipeContainer.append(cardBody);
+
+                    // cuisine type array
+                    cuisineTypeArray.push(result);
 
                 }
 
@@ -111,6 +163,7 @@ function fetchRecipes() {
                 $("#mainCard").append(newCard);
             }
         });
+    $(chartButton).show()
 }
 
 

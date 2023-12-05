@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="./assets/reset.css" />
   <link rel="stylesheet" href="./assets/style.css" />
   <title>Menu Planner & Carbon Foot Print Calculator</title>
+
 </head>
 
 <body>
@@ -36,7 +37,14 @@
     </div>
   </div>
 
-</body>
+  <!--Div that will hold the chart-->
+  <button class="btn btn-primary" id="chartButton" onclick="createChart()">Make CO2 Chart</button>
+  <div class="w-50">
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </html>
 
