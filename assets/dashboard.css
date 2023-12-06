@@ -45,7 +45,7 @@ body {
     justify-content: center;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 995px) {
 
     #leftContent {
         float: none;

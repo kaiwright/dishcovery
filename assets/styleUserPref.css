@@ -10,12 +10,15 @@
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  justify-content: center;
 }
 
+.navbar {
+  background-color: #57B894;
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -81,6 +84,7 @@ input:checked+.slider:before {
 }
 
 .container {
+  font-family: 'Poppins', sans-serif;
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -158,6 +162,7 @@ input:checked+.slider:before {
     color: #4EA685 ;
     font-size: 0.9rem;  
 }
+
 #height{
   width: 25%;
     padding: 0.6rem 0;

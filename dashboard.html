@@ -26,129 +26,130 @@
     </div>
   </nav>
 
-<section class="container" id="Main Page">
-  <div class="p-3 text-center" id="title">
-    <h2>Dashboard</h2>
-  </div>
-  <!-- Page Grid -->
-  <div class="container text-center" id="leftContent">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-2">
+  <section class="container" id="Main Page">
+    <div class="p-3 text-center" id="title">
+      <h2>Dashboard</h2>
+    </div>
+    <!-- Page Grid -->
+    <div class="container text-center" id="leftContent">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-2">
 
-      <div class="col p-3">
-        <!-- Meal Planner -->
-        <div class="card" id="mealPlanner">
-          <a class="card-body" href="mealPlanner.html">
-            <h5 class="card-title">Meal Planner</h5>
-            <img src="./assets/imgs/mealPlanner.png" />
-          </a>
+        <div class="col p-3">
+          <!-- Meal Planner -->
+          <div class="card" id="mealPlanner">
+            <a class="card-body" href="mealPlanner.html">
+              <h5 class="card-title">Meal Planner</h5>
+              <img src="./assets/imgs/mealPlanner.png" />
+            </a>
+          </div>
+        </div>
+
+        <div class="col p-3">
+          <!-- Recipe Search -->
+          <div class="card w-100" id="recipeSearch">
+            <a class="card-body" href="recipeSearch.html">
+              <h5 class="card-title">Recipe Search</h5>
+              <img src="./assets/imgs/recipeSearch.png" />
+            </a>
+          </div>
+        </div>
+
+        <div class="col p-3">
+          <!-- Shopping List -->
+          <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title">Shopping List</h5>
+              <img src="./assets/imgs/shoppingListGrey.png" />
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row row-cols-1 w-100 p-3">
+          <!-- News -->
+          <div class="card">
+            <div class="card-body container">
+              <h5 class="card-title">News</h5>
+              <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3" id="news">
+                <!--News cards go here-->
+              </div>
+              <!-- News API -->
+              <script>
+                headlines = [];
+                var newsURL = "https://api.worldnewsapi.com/search-news?source-countries=uk&text=diet-pills-book&min-sentiment=0.5&api-key=eb806899ad0a46e88d4dd451e6fd9c8c";
+                fetch(newsURL)
+                  .then(function (response) {
+                    return response.json();
+                  })
+                  .then(function (data) {
+                    console.log(data)
+
+                    for (var i = 0; i < 3; i++) {
+
+                      // creates a new card element
+                      var newCard = $("<div>").addClass("card col");
+
+                      // create a card body to attach to
+                      var newsContainer = $("<div>").addClass("card-body");
+
+                      // creates a new image element
+                      var newsImg = $("<img>").addClass("card-img-top p-2");
+
+                      // applies the url to the src
+                      newsImg.attr("src", data.news[i].image)
+
+                      // appends the image to the card div
+                      newsContainer.append(newsImg);
+
+                      // creates new title element
+                      var headline = $("<a>").addClass("card-title");
+
+                      // assign link to headline
+                      headline.attr("href", data.news[i].url)
+
+                      // applying the headline to the title element
+                      headline.text(data.news[i].title);
+
+                      // append the title to the card div
+                      newsContainer.append(headline);
+
+                      //appends new card and then recipe container
+                      newCard.append(newsContainer);
+                      $("#news").append(newCard);
+                    }
+                  })
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 w-100 p-3" id="chartArea">
+
         </div>
       </div>
+    </div>
 
-      <div class="col p-3">
-        <!-- Recipe Search -->
-        <div class="card w-100" id="recipeSearch">
-          <a class="card-body" href="recipeSearch.html">
-            <h5 class="card-title">Recipe Search</h5>
-            <img src="./assets/imgs/recipeSearch.png" />
-          </a>
+
+    <!-- Grid pt2 -->
+    <div class="container text-center" id="rightContent">
+      <div class="row g-2 g-lg-3 p-3" id="co2Chart">
+
+        <div class="row">
         </div>
-      </div>
-
-      <div class="col p-3">
-        <!-- Shopping List -->
+        <!-- CO2 Emissions Chart -->
         <div class="card w-100">
           <div class="card-body">
-            <h5 class="card-title">Shopping List</h5>
-            <img src="./assets/imgs/shoppingListGrey.png" />
+            <h5 class="card-title">CO2</h5>
+
+            <body onload="fetchData()">
+              <div>
+                <canvas id="myChart"></canvas>
+              </div>
           </div>
         </div>
       </div>
-
-
-      <div class="row row-cols-1 w-100 p-3">
-        <!-- News -->
-        <div class="card">
-          <div class="card-body container">
-            <h5 class="card-title">News</h5>
-            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-2 g-lg-3" id="news">
-              <!--News cards go here-->
-            </div>
-            <!-- News API -->
-            <script>
-              headlines = [];
-              var newsURL = "https://api.worldnewsapi.com/search-news?source-countries=uk&text=diet-pills-book&min-sentiment=0.5&api-key=82b4b78d72014e3cad8da18eb8ac3046";
-              fetch(newsURL)
-                .then(function (response) {
-                  return response.json();
-                })
-                .then(function (data) {
-                  console.log(data)
-
-                  for (var i = 0; i < 3; i++) {
-
-                    // creates a new card element
-                    var newCard = $("<div>").addClass("card col");
-
-                    // create a card body to attach to
-                    var newsContainer = $("<div>").addClass("card-body");
-
-                    // creates a new image element
-                    var newsImg = $("<img>").addClass("card-img-top p-2");
-
-                    // applies the url to the src
-                    newsImg.attr("src", data.news[i].image);
-
-                    // appends the image to the card div
-                    newsContainer.append(newsImg);
-
-                    // creates new title element
-                    var headline = $("<a>").addClass("card-title");
-
-                    // assign link to headline
-                    headline.attr("href", data.news[i].url)
-
-                    // applying the headline to the title element
-                    headline.text(data.news[i].title);
-
-                    // append the title to the card div
-                    newsContainer.append(headline);
-
-                    //appends new card and then recipe container
-                    newCard.append(newsContainer);
-                    $("#news").append(newCard);
-                  }
-                })
-            </script>
-          </div>
-        </div>
-      </div>
-      <div class="row row-cols-1 w-100 p-3" id="chartArea">
-
-      </div>
     </div>
-  </div>
+  </section>
 
-
-  <!-- Grid pt2 -->
-  <div class="container text-center" id="rightContent">
-    <div class="row g-2 g-lg-3 p-3" id="co2Chart">
-
-      <div class="row" >
-      </div>
-      <!-- CO2 Emissions Chart -->
-      <div class="card w-100">
-        <div class="card-body">
-          <h5 class="card-title">CO2</h5>
-
-          <body onload="fetchData()">
-            <div>
-              <canvas id="myChart"></canvas>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
   <!-- Chart.js JS -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </section>
