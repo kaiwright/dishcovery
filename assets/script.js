@@ -1,5 +1,5 @@
 
-var shoppingList = ["Carrots", "Peas", "Tofu"]
+var shoppingList = ["Carrots", "Peas", "Potato"]
 recipeNames = []
 co2Data = []
 
@@ -12,7 +12,7 @@ function fetchData() {
         })
         .then(function (data) {
             console.log(data);
-            for (var i = 1; i < (data.hits).length; i++) {
+            for (var i = 1; i < 14; i++) {
                 recipeNames.push(data.hits[i].recipe.label)
                 co2Data.push(Math.round(data.hits[i].recipe.totalCO2Emissions));
             }
