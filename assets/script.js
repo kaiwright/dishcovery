@@ -3,7 +3,7 @@ var shoppingList = ["Carrots", "Peas", "Tofu"]
 recipeNames = []
 co2Data = []
 
-
+// fetches data from the api based on what recipes the user can make
 function fetchData() {
     var queryURL = "https://api.edamam.com/api/recipes/v2?type=public&q=" + shoppingList + "&app_id=2e4c3f7b&app_key=9937b42f06b25b17a8890d5216e8728a";
     fetch(queryURL)
@@ -19,10 +19,9 @@ function fetchData() {
             console.log(recipeNames, co2Data)
             // chart
             function createChart() {
-
                 const ctx = document.getElementById('myChart');
 
-                new Chart(ctx, {
+                const pieChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
                         labels: recipeNames,
@@ -48,4 +47,12 @@ function fetchData() {
         })
 }
 
+// Changes the chart's location when resized
+window.onresize = window.onload = function() {
+    if ($(window).width() < 800) {
+        $('#co2Chart').appendTo($('#chartArea'))
+    } else {
+        $('#co2Chart').appendTo($('#rightContent'))
+    }
+}
 
