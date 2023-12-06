@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("save-button").addEventListener("click", savePreferences);
 });
-
 function savePreferences() {
     var preferences = {
         female: getCheckboxValue("female"),
@@ -48,8 +47,40 @@ function savePreferences() {
         saturday: getCheckboxValue("saturday"),
         sunday: getCheckboxValue("sunday"),
     };
+   
+  var storedUserData = localStorage.getItem('userData');
+  var storedcurrUser =  localStorage.getItem('currUser');
+  try {
+    // Attempt to parse storedUserDataJSON
+    if (storedcurrUser) {
+      var currUser = JSON.parse(storedcurrUser);
+      currUser.preferences =JSON.stringify(preferences);
+      localStorage.setItem("currUser",JSON.stringify(currUser));
 
-    localStorage.setItem("userPreferenceAbout", JSON.stringify(preferences));
+        try {
+            // Attempt to parse storedUserDataJSON
+            if (storedUserData) {
+            var userData= JSON.parse(storedUserData);
+            var userInd = userData.findIndex(user => user.username === currUser.username);
+
+            userData[userInd] = currUser
+            console.log(userData)
+            localStorage.setItem("userData",JSON.stringify(userData));
+            }
+        } catch (error) {
+            // Handle JSON parsing error
+            console.error('Error parsing user data JSON:', error);
+        }
+
+    }
+  } catch (error) {
+    // Handle JSON parsing error
+    console.error('Error parsing current user JSON:', error);
+  }
+  
+
+ alert ("Congratulations your are registered!")
+ window.location.href = 'dashboard.html';
 }
 
 function getCheckboxValue(id) {
