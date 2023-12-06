@@ -14,7 +14,7 @@ function clearSignUpInputs() {
   document.getElementById('signup-username').value = '';
   document.getElementById('signup-email').value = '';
   document.getElementById('signup-password').value = '';
-  document.getElementById('signup-confirm-password').value = '';
+  document.getElementById('signup-password').value = '';
 }
 
 

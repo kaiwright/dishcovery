@@ -1,383 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/styleUserPref.css">
     <title>User Preferences</title>
 </head>
+
 <body>
-    <div id="container" class="container"> 
-        <div class="row">
-        <!-- ABOUT YOU PREFERENCES-->
-        <div class="col align-items-center flex-col sign-up">
-            <div class="form-wrapper align-items-center">
-                <div class="form allergens">
-                    <div class="toggle-group">
-                        <h1>About you</h1>
-                        <p>
-                            Female
-                        </p>
-                        <label class="switch">
-                            <input type="checkbox" id="female">
-                            <span class="slider round"></span>
-                        </label>
-                        <p>
-                            Male
-                        </p>
-                        <label class="switch">
-                            <input type="checkbox"  id="male">
-                            <span class="slider round"></span>
-                        </label>
-                        <p>
-                            Other
-                        </p>
-                        <label class="switch">
-                            <input type="checkbox"  id="other">
-                            <span class="slider round"></span>
-                        </label>
-                        <p>
-                            My current weight
-                        </p>
-                        <div class="input-group">
-                            <input type="text"id="wheight">
-                          </div>
-                        <p>
-                           My current height
-                        </p>
-                        <div class="input-group">
-                            <input type="text" id="height">
-                    </div>
-                    <!-- END ABOUT YOU -->
-                </div>
-                </div>
-                <!-- END FORM SECTION1 -->
-            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./assets/dashboard.js"></script>
+    <script src="./assets/recipes.js"></script>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Dishcovery</span>
         </div>
-        <!--FORM SECTION -->
+    </nav>
+
+    <div id="container" class="container">
         <div class="row">
-            <!-- ALLERGENS-->
+            <!-- ABOUT YOU PREFERENCES-->
             <div class="col align-items-center flex-col sign-up">
                 <div class="form-wrapper align-items-center">
                     <div class="form allergens">
                         <div class="toggle-group">
-                            <h1>Allergens</h1>
-                            <h3>Show me recipes that are:</h3>
+                            <h1>About you</h1>
                             <p>
-                                Celery-free
+                                Female
                             </p>
                             <label class="switch">
-                                <input type="checkbox"  id="celery-free">
-                                <span class="slider round"></span>
-                              </label>
-                            <p>
-                                Crustacean-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="crustacean-free">
+                                <input type="checkbox" id="female">
                                 <span class="slider round"></span>
                             </label>
                             <p>
-                                Dairy-free
+                                Male
                             </p>
                             <label class="switch">
-                                <input type="checkbox"  id="dairy-free">
+                                <input type="checkbox" id="male">
                                 <span class="slider round"></span>
                             </label>
                             <p>
-                                Egg-free
+                                Other
                             </p>
                             <label class="switch">
-                                <input type="checkbox"  id="egg-free">
+                                <input type="checkbox" id="other">
                                 <span class="slider round"></span>
                             </label>
                             <p>
-                                Fish-free
+                                My current weight
                             </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="fish-free">
-                                <span class="slider round"></span>
-                            </label>
+                            <div class="input-group">
+                                <input type="text" id="wheight">
+                            </div>
                             <p>
-                                Gluten-free
+                                My current height
                             </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="gluten-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Lupin-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox" id="lupin-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Mustard-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="mustard-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Peanut-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="peanut-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Sesame-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="sesame-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Shellfish-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="shellfish-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Soy-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="soy-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Tree-Nut-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="tree-nut-free">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Wheat-free
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="wheat-free">
-                                <span class="slider round"></span>
-                            </label>
+                            <div class="input-group">
+                                <input type="text" id="height">
+                            </div>
+                            <!-- END ABOUT YOU -->
                         </div>
                     </div>
+                    <!-- END FORM SECTION1 -->
                 </div>
-            <!-- END ALLERGENS -->
-        </div>
-            <!-- END FORM SECTION2 -->
-        </div>
-        <!--FORM SECTION3-->
-        <div class="row">
-            <!-- DIET PREFERENCES-->
-            <div class="col align-items-center flex-col sign-up">
-                <div class="form-wrapper align-items-center">
-                    <div class="form allergens">
-                        <div class="toggle-group">
-                            <h1>Diets</h1>
-                            <h3>Which diet suits you best?</h3>
-                            <p>
-                                Vegan
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="vegan">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Vegetarian
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="vegetarian">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Pescatarian
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox" id="pescatarian">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                American
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="american">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Asian
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox" id="asian">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                                Chinese
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox" id="chinese">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                               Eastern Europe
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox" id="easter-europe">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                               French
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="french">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                              Indian
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="indian">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                            Italian 
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="italian">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                            Mediterranean 
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="mediterranean">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                             Mexican
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="mexican">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                            Middle Eastern
-                            </p>
-                            <label class="switch">
-                                <input type="checkbox"  id="middle-eastern">
-                                <span class="slider round"></span>
-                            </label>
-                            <p>
-                              South American
+            </div>
+            <!--FORM SECTION -->
+            <div class="row">
+                <!-- ALLERGENS-->
+                <div class="col align-items-center flex-col sign-up">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form allergens">
+                            <div class="toggle-group">
+                                <h1>Allergens</h1>
+                                <h3>Show me recipes that are:</h3>
+                                <p>
+                                    Celery-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="celery-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Crustacean-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="crustacean-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Dairy-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="dairy-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Egg-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="egg-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Fish-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="fish-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Gluten-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="gluten-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Lupin-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="lupin-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Mustard-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="mustard-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Peanut-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="peanut-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Sesame-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="sesame-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Shellfish-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="shellfish-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Soy-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="soy-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Tree-Nut-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="tree-nut-free">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Wheat-free
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="wheat-free">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END ALLERGENS -->
+                </div>
+                <!-- END FORM SECTION2 -->
+            </div>
+            <!--FORM SECTION3-->
+            <div class="row">
+                <!-- DIET PREFERENCES-->
+                <div class="col align-items-center flex-col sign-up">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form allergens">
+                            <div class="toggle-group">
+                                <h1>Diets</h1>
+                                <h3>Which diet suits you best?</h3>
+                                <p>
+                                    Vegan
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="vegan">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Vegetarian
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="vegetarian">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Pescatarian
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="pescatarian">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    American
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="american">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Asian
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="asian">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Chinese
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="chinese">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Eastern Europe
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="easter-europe">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    French
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="french">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Indian
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="indian">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Italian
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="italian">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Mediterranean
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="mediterranean">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Mexican
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="mexican">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Middle Eastern
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="middle-eastern">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    South American
                                 </p>
                                 <label class="switch">
                                     <input type="checkbox" id="south-american">
                                     <span class="slider round"></span>
                                 </label>
+                            </div>
+
+                            <!-- END DIETS -->
                         </div>
-                
-                        <!-- END DIETS -->
-                    </div>
                     </div>
                     <!-- END FORM SECTION3 -->
                 </div>
             </div>
-                    <!--FORM SECTION4-->
-                    <div class="row">
-                        <!-- Planning Preferences -->
-                        <div class="col align-items-center flex-col sign-up">
-                            <div class="form-wrapper align-items-center">
-                                <div class="form allergens">
-                                    <div class="toggle-group">
-                                        <h1>Menu planner</h1>
-                                        <h3>How many meals per day?</h3>
-                                        <p>
-                                            Breakfast
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="breackfast">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Lunch
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="lunch">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Dinner
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="dinner">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <br>
-                                        <br>
-                                        <h3>How many days a week?</h3>
-                                        <p>
-                                            Monday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="monday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Tuesday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox" id="tuesday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Wednesday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="wednesday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Thursday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="thursday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Friday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="friday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Saturday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox"  id="saturday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                        <p>
-                                            Sunday
-                                        </p>
-                                        <label class="switch">
-                                            <input type="checkbox" id="sunday">
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </div>
-                                    <br>
-                                    <button id="save-button">
-                                        Save Preferences
-                                    </button>
-                                    <!-- END Diets -->
-                                </div>
-                                <!-- END FORM SECTION 4-->
+            <!--FORM SECTION4-->
+            <div class="row">
+                <!-- Planning Preferences -->
+                <div class="col align-items-center flex-col sign-up">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form allergens">
+                            <div class="toggle-group">
+                                <h1>Menu planner</h1>
+                                <h3>How many meals per day?</h3>
+                                <p>
+                                    Breakfast
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="breackfast">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Lunch
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="lunch">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Dinner
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="dinner">
+                                    <span class="slider round"></span>
+                                </label>
+                                <br>
+                                <br>
+                                <h3>How many days a week?</h3>
+                                <p>
+                                    Monday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="monday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Tuesday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="tuesday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Wednesday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="wednesday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Thursday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="thursday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Friday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="friday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Saturday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="saturday">
+                                    <span class="slider round"></span>
+                                </label>
+                                <p>
+                                    Sunday
+                                </p>
+                                <label class="switch">
+                                    <input type="checkbox" id="sunday">
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
+                            <br>
+                            <button id="save-button">
+                                Save Preferences
+                            </button>
+                            <!-- END Diets -->
                         </div>
+                        <!-- END FORM SECTION 4-->
                     </div>
-                    <!-- SCRIPT -->
-                    <script type= module src="userPreference.js" async defer></script>
+                </div>
+            </div>
+            <!-- SCRIPT -->
+            <script src="assets/userPreference.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+                integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+                crossorigin="anonymous"></script>
 </body>
+
 </html>
