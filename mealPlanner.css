@@ -2,6 +2,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.navbar {
+    background-color: #57B894;
+}
+
 .card {
     width: auto;
     max-width: 350px;
