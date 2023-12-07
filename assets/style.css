@@ -2,6 +2,7 @@
 
 body {
     background-image: url("./imgs/backgroundImg.png");
+    font-family: 'Poppins', sans-serif;
 }
 
 #mainPage {
@@ -13,7 +14,10 @@ body {
     background-color: #57B894;
 }
 
-
+#preferences {
+    padding-right: 0.5%;
+    float: right;
+}
 
 .card-img-top {
     object-fit: cover;
@@ -28,7 +32,7 @@ body {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     border-color: #57B894;
     border-width: 3px;
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 #leftContent {

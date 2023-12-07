@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 
 body {
-    background-image: url("./imgs/backgroundImg.png");
-    font-family: Arial, sans-serif;
-    
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .navbar {
@@ -19,8 +18,8 @@ body {
     border-radius: 9px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: auto;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
 }
 
 .card-header {
@@ -39,11 +38,21 @@ body {
     border-collapse: collapse;
 }
 
-.card-table th, .card-table td {
-    
+.card-table th,
+.card-table td {
+
     border: 1px solid #dddddd;
     text-align: center;
     padding: 10px;
+}
+
+#preferences {
+    padding-right: 0.5%;
+    float: right;
+}
+
+.navbar-toggler {
+    float: right;
 }
 
 .card-table th {
@@ -51,8 +60,8 @@ body {
 }
 
 .card-buttons {
-    display: flex; 
-    justify-content: space-around; 
+    display: flex;
+    justify-content: space-around;
 }
 
 .btn {
@@ -70,28 +79,51 @@ body {
     font-weight: bold;
 }
 
-  .container {
+.container {
     margin-top: 20px;
     object-fit: cover;
-  }
+    justify-content: center;
+}
 
-  .day-card {
-   
-    padding: 10px;
+.day-card {
+
+    padding: 3%;
     margin-bottom: 20px;
-    width: 630px;
+    width: auto;
     margin: 20px auto;
     border: 1px solid #ddd;
+    background-color: #efefef;
     border-radius: 9px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 130px;
-    display: flex; 
-   
-  }
-  .meal {
-    margin-bottom: 10px;
-    margin-right: 40px;
-    margin-left:40px;
-   color: #4EA685;
-   font-size: larger;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.meal {
+    padding: 0 5% 0 5%;
+    color: #4EA685;
+    border-color: #57B894;
+    width: auto;
+    text-align: center;
+    
+}
+
+.recipe {
+    padding: 2%;
+    color: black;
+    border-radius: 10%;
+    width: 90%;
+    height: 90%;
+    justify-content: center;
+    text-align: center;
+}
+
+@media only screen and (min-width: 995px) {
+    .day-card {
+        width: 70%;
+        padding: 1%;
+    }
+
 }

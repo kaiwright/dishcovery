@@ -60,6 +60,7 @@ function nextMonth() {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar();
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     // Define the number of days in a week
     const numberOfDays = 7;
@@ -69,28 +70,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Create meal planner dynamically
     for (let day = 1; day <= numberOfDays; day++) {
-      // Create day card
-      const dayCard = document.createElement('div');
-      dayCard.classList.add('day-card');
+        // Create day card
+        const dayCard = document.createElement('div');
+        dayCard.classList.add('day-card');
 
-      // Set day heading with current day and month
-      const today = new Date();
-      today.setDate(today.getDate() + day - 1); // Adjust for the current day
-      const dayOptions = { weekday: 'long', month: 'long', day: 'numeric' };
-      const heading = document.createElement('h3');
-      heading.textContent = today.toLocaleDateString('en-US', dayOptions);
-      dayCard.appendChild(heading);
+        // Set day heading with current day and month
+        const today = new Date();
+        today.setDate(today.getDate() + day - 1); // Adjust for the current day
+        const dayOptions = { weekday: 'long', month: 'long', day: 'numeric' };
+        const heading = document.createElement('h3');
+        heading.textContent = today.toLocaleDateString('en-US', dayOptions);
+        dayCard.appendChild(heading);
 
-      // Create meals for the day
-      const meals = ['Breakfast', 'Lunch', 'Dinner'];
-      meals.forEach(meal => {
-        const mealElement = document.createElement('div');
-        mealElement.classList.add('meal');
-        mealElement.textContent = meal;
-        dayCard.appendChild(mealElement);
-      });
+        // Create meals for the day
+        const meals = ['Breakfast', 'Lunch', 'Dinner'];
 
-      // Append the day card to the container
-      mealPlannerContainer.appendChild(dayCard);
+
+        meals.forEach(meal => {
+            const mealElement = document.createElement('div');
+            mealElement.classList.add('meal');
+            mealElement.textContent = meal;
+            dayCard.appendChild(mealElement);
+
+            // create buttons attached to the meals
+            const recipeBox = document.createElement('a');
+            recipeBox.classList.add('recipe', 'btn', meal)
+            mealElement.appendChild(recipeBox)
+
+            if (recipeBox.classList.contains('Breakfast')) {
+                var breakfastURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=e804f1af&app_key=468b4894872d9ced66fd0510c4404a26&mealType=Breakfast&random=true";
+                fetch(breakfastURL) 
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        recipeBox.textContent = data.hits[0].recipe.label;
+                        recipeBox.setAttribute('href', data.hits[0].recipe.url)
+                        recipeBox.setAttribute('target', '_blank')
+                    });
+            } if (recipeBox.classList.contains('Lunch')) {
+                // lunch
+                var lunchURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=e804f1af&app_key=468b4894872d9ced66fd0510c4404a26&mealType=Lunch&random=true";
+                fetch(lunchURL)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        recipeBox.textContent = data.hits[0].recipe.label
+                        recipeBox.setAttribute('href', data.hits[0].recipe.url)
+                        recipeBox.setAttribute('target', '_blank')
+                    });
+            } if (recipeBox.classList.contains('Dinner')) {
+                // dinner
+                var dinnerURL = "https://api.edamam.com/api/recipes/v2?type=public&app_id=e804f1af&app_key=468b4894872d9ced66fd0510c4404a26&mealType=Dinner&random=true";
+                fetch(dinnerURL)
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (data) {
+                        recipeBox.textContent = data.hits[0].recipe.label
+                        recipeBox.setAttribute('href', data.hits[0].recipe.url)
+                        recipeBox.setAttribute('target', '_blank')
+                    });
+            }
+
+        });
+        // Append the day card to the container
+        mealPlannerContainer.appendChild(dayCard);
     }
-  });
+
+});
+
+
+
+
+
+
+
+
