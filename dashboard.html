@@ -16,6 +16,7 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://kit.fontawesome.com/4163a3da2d.js" crossorigin="anonymous"></script>
   <script src="assets/script.js"></script>
   <script src="assets/recipes.js"></script>
 
@@ -23,7 +24,10 @@
   <nav class="navbar">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Dishcovery</span>
-      <a class="nav-link" aria-current="page" href="userPreference.html">User Preferences</a>
+      <!-- Preferences cog -->
+      <a class="nav-link" id="preferences" aria-current="page" href="userPreference.html">
+        <i class="fa-solid fa-gear fa-xl"></i>
+      </a>
     </div>
   </nav>
 
@@ -33,11 +37,11 @@
     </div>
     <!-- Page Grid -->
     <div class="container text-center" id="leftContent">
-      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-2">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-1">
 
-        <div class="col p-3">
+        <div class="col p-2">
           <!-- Meal Planner -->
-          <div class="card" id="mealPlanner">
+          <div class="card w-100" id="mealPlanner">
             <a class="card-body" href="mealPlanner.html">
               <h5 class="card-title">Meal Planner</h5>
               <img src="./assets/imgs/mealPlanner.png" />
@@ -45,7 +49,7 @@
           </div>
         </div>
 
-        <div class="col p-3">
+        <div class="col p-2">
           <!-- Recipe Search -->
           <div class="card w-100" id="recipeSearch">
             <a class="card-body" href="recipeSearch.html">
@@ -55,7 +59,7 @@
           </div>
         </div>
 
-        <div class="col p-3">
+        <div class="col p-2">
           <!-- Shopping List -->
           <div class="card w-100">
             <div class="card-body">
@@ -77,13 +81,12 @@
               <!-- News API -->
               <script>
                 headlines = [];
-                var newsURL = "https://api.worldnewsapi.com/search-news?source-countries=uk&text=diet-pills-book&min-sentiment=0.5&api-key=eb806899ad0a46e88d4dd451e6fd9c8c";
+                var newsURL = "https://api.worldnewsapi.com/search-news?api-key=c465a704f4064500ab8e8f153e6c18ff&text=diet-pills";
                 fetch(newsURL)
                   .then(function (response) {
                     return response.json();
                   })
                   .then(function (data) {
-                    console.log(data)
 
                     for (var i = 0; i < 3; i++) {
 
@@ -107,6 +110,7 @@
 
                       // assign link to headline
                       headline.attr("href", data.news[i].url)
+                      headline.attr("target", "_blank")
 
                       // applying the headline to the title element
                       headline.text(data.news[i].title);

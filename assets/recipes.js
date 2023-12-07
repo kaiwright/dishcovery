@@ -23,7 +23,6 @@ function fetchRecipes() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             //clears previous results
             $("#mainCard").empty();
             cuisineTypeArray = []
@@ -120,6 +119,7 @@ function fetchRecipes() {
 
                 // applying the recipe link to the new button
                 recipeButton.attr("href", (data.hits[i].recipe.url));
+                recipeButton.attr("target", "_blank")
                 recipeButton.text("Go to Recipe");
 
                 // appending button to card
