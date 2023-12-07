@@ -1,3 +1,4 @@
+// Calendar
 document.addEventListener('DOMContentLoaded', function () {
     renderCalendar();
 });
@@ -59,6 +60,7 @@ function nextMonth() {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar();
 }
+<<<<<<< HEAD:mealPlanner.js
 document.addEventListener('DOMContentLoaded', function () {
     // Define the number of days in a week
     const numberOfDays = 7;
@@ -93,3 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
       mealPlannerContainer.appendChild(dayCard);
     }
   });
+=======
+
+// API 
+>>>>>>> 56744764645c213125b44e329b75480ea250f06e:assets/mealPlanner.js
