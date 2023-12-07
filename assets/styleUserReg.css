@@ -43,6 +43,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin-left: -30px ;
 }
 
 .form-wrapper {
