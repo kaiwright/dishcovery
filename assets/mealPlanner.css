@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
 body {
+    background-image: url("./imgs/backgroundImg.png");
     font-family: Arial, sans-serif;
+    
 }
 
 .navbar {
@@ -68,6 +72,7 @@ body {
 
   .container {
     margin-top: 20px;
+    object-fit: cover;
   }
 
   .day-card {
@@ -81,6 +86,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: 130px;
     display: flex; 
+   
   }
   .meal {
     margin-bottom: 10px;

@@ -79,7 +79,7 @@ function savePreferences() {
   }
   
 
- alert ("Congratulations your are registered!")
+ //alert ("Congratulations your are registered!")
  window.location.href = 'dashboard.html';
 }
 
