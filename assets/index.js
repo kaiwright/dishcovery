@@ -25,7 +25,7 @@ function registerUser() {
 
   // Check if any of the inputs are empty
   if (!username || !email || !password) {
-    alert('Please complete all sections.');
+    //alert('Please complete all sections.');
     return;
   }
 
@@ -48,7 +48,7 @@ function registerUser() {
   
   if (existingUser) {
     // User is already registered, send an alert and redirect to sign-in
-    alert('Your profile already exists. Please sign in.');
+    //alert('Your profile already exists. Please sign in.');
     window.location.href = ''; 
     return;
   }
@@ -121,8 +121,8 @@ document.getElementById('signin-button').addEventListener('click', () => {
   var currUser = registeredUsers.find(user => user.username === username);
   
   if (typeof currUser !== 'object'){
-  alert ( "the user doesnt exist") }
-  else {
+  //alert ( "the user doesnt exist") 
+} else {
 
     localStorage.setItem('currUser', JSON.stringify(currUser));
     // After successful sign-in, redirect to the dashboard
