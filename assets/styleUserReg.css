@@ -1,3 +1,4 @@
+
 :root {
   --primary-color: #4EA685;
   --secondary-color: #57B894;
@@ -12,7 +13,7 @@
 * {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 0 ;
   box-sizing: border-box;
 }
 
@@ -24,8 +25,8 @@ body {
 
 .container {
   position: relative;
-  min-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh ;
+  overflow: hidden ;
 }
 
 .row {
@@ -193,11 +194,13 @@ body {
 .container.sign-in::before {
   transform: translate(0, 0);
   right: 50%;
+  width: 100%;
 }
 
 .container.sign-up::before {
   transform: translate(100%, 0);
-  right: 50%;
+  right: 50% !important;
+  width: 100% !important;
 }
 
 @media only screen and (max-width: 425px) {
@@ -269,3 +272,4 @@ body {
 #modal3 {
   display: none;
 }
+
