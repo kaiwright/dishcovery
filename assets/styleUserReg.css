@@ -257,3 +257,15 @@ body {
       font-size: 2rem;
   }
 }
+#modal1 {
+  display: none;
+}
+.modal-visible {
+  display: block !important;
+}
+#modal2 {
+  display: none;
+}
+#modal3 {
+  display: none;
+}

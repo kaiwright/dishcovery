@@ -16,7 +16,24 @@ function clearSignUpInputs() {
   document.getElementById('signup-password').value = '';
   document.getElementById('signup-password').value = '';
 }
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("button-modal1").addEventListener('click', function() {
+    document.getElementById('modal1').classList.remove('modal-visible');
+  });
 
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("button-modal2").addEventListener('click', function() {
+    document.getElementById('modal2').classList.remove('modal-visible');
+  });
+  
+});
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("button-modal3").addEventListener('click', function() {
+    document.getElementById('modal3').classList.remove('modal-visible');
+  });
+  
+});
 
 function registerUser() {
   var username = document.getElementById('signup-username').value;
@@ -25,10 +42,10 @@ function registerUser() {
 
   // Check if any of the inputs are empty
   if (!username || !email || !password) {
-    //alert('Please complete all sections.');
-    return;
+    // If any field is not filled, show the Bootstrap modal
+    document.getElementById('modal1').classList.add('modal-visible');
+    return;  
   }
-
   // Check if there is existing user data in local storage
   var storedUserData = localStorage.getItem('userData');
   var registeredUsers = [];
@@ -42,24 +59,20 @@ function registerUser() {
     // Handle JSON parsing error
     console.error('Error parsing JSON:', error);
   }
-
   // Check if the user is already registered by email
   var existingUser = registeredUsers.find(user => user.email === email);
   
   if (existingUser) {
-    // User is already registered, send an alert and redirect to sign-in
-    //alert('Your profile already exists. Please sign in.');
-    window.location.href = ''; 
+    document.getElementById('modal2').classList.add('modal-visible');
+    console.log ("exist");
     return;
   }
   // Add the new user to the array
-    var currUser = {
+  var currUser = {
     username: username,
     email: email,
     password: password,
-    preferences: {
-
-    },
+    preferences: {}
   };
 
   // Check if storedUserData is an array
@@ -74,9 +87,8 @@ function registerUser() {
   localStorage.setItem('userData', JSON.stringify(registeredUsers));
   localStorage.setItem('currUser', JSON.stringify(currUser));
 
- 
   // Redirect to user preferences after the first-time registration
-  window.location.href = 'userPreference.html';  // Redirect to userPreference.html
+  window.location.href = 'userPreference.html';
 
   // Clear sign-up form inputs
   clearSignUpInputs();
@@ -121,7 +133,7 @@ document.getElementById('signin-button').addEventListener('click', () => {
   var currUser = registeredUsers.find(user => user.username === username);
   
   if (typeof currUser !== 'object'){
-  //alert ( "the user doesnt exist") 
+    document.getElementById('modal3').classList.add('modal-visible');
 } else {
 
     localStorage.setItem('currUser', JSON.stringify(currUser));
